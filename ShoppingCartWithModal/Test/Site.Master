@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Test.SiteMaster" %>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - SMC Shopping Cart Application</title>
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="../Styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Styles/Site.css">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+
+        <asp:ScriptManager runat="server">
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-collapse collapse">
+                    <asp:UpdatePanel ID="UpdPnlCartInHeader" runat="server">
+                        <ContentTemplate>
+                            <ul class="nav navbar-nav">
+                                <li><a runat="server" href="~/">Home</a></li>
+                                <li><a runat="server" href="~/ShoppingCart.aspx"><b>
+                                    <i class="fa fa-shopping-cart" style="font-size: 16px"></i>
+                                    <asp:Label ID="LblQuanity" runat="server"></asp:Label></b></a></li>
+                            </ul>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <p>&nbsp</p>
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - SMC Inc.</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
